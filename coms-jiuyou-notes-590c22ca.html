@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游 · 再次探访</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafafa;
+      color: #1e1e1e;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2.5rem 1.2rem 4rem;
+    }
+
+    .container {
+      max-width: 620px;
+      width: 100%;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 0.25rem;
+      color: #111;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #5a5a5a;
+      border-left: 3px solid #d4d4d4;
+      padding-left: 1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 2.4rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-top: 2.8rem;
+      margin-bottom: 0.9rem;
+      color: #222;
+      letter-spacing: 0.01em;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 1.5rem;
+      margin-bottom: 0.4rem;
+      color: #2a2a2a;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #333;
+    }
+
+    /* 极简卡片块 */
+    .card-slim {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 1.2rem 1.6rem;
+      margin: 1.8rem 0 1.2rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02), 0 0 0 1px #ececec;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: baseline;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    .li-marker {
+      display: inline-block;
+      width: 1.4rem;
+      color: #a0a0a0;
+      font-weight: 300;
+      flex-shrink: 0;
+    }
+
+    .faq-item {
+      margin-bottom: 1.1rem;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1e1e1e;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #4a4a4a;
+      font-size: 0.94rem;
+      padding-left: 0.2rem;
+    }
+
+    a {
+      color: #0057b3;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,87,179,0.25);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      color: #003d82;
+      border-bottom-color: #003d82;
+    }
+
+    .inline-link {
+      white-space: nowrap;
+    }
+
+    .muted {
+      color: #6b6b6b;
+      font-size: 0.9rem;
+    }
+
+    .end-note {
+      margin-top: 2.8rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid #e2e2e2;
+      font-size: 0.92rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #eaeaea;
+      margin: 2rem 0 0.6rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.8rem 1rem 3rem;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .card-slim {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>再次打开九游</h1>
+  <div class="subhead">收藏一个站点，如同保留一个安静的坐标。</div>
+
+  <p>有些网站值得反复回访，不是因为频繁的更新，而是因为每一次打开都提供了一致、清晰的信息边界。<a href="https://coms-jiuyou.com">九游官网</a>正是这样一个地方——没有冗余的弹窗，没有喧嚣的推送，只有你需要的服务入口与内容聚合。对于习惯深度浏览的用户而言，这种克制的设计本身就是一种专业。</p>
+
+  <h2>那些让人愿意停留的特点</h2>
+  <div class="card-slim">
+    <ul>
+      <li><span class="li-marker">01</span> 信息层级分明：主次内容间距恰当，视觉引导清晰，减少决策损耗。</li>
+      <li><span class="li-marker">02</span> 稳定的访问体验：页面结构长期保持统一，不随版本迭代而大幅变动，降低重新适应的成本。</li>
+      <li><span class="li-marker">03</span> 专注核心功能：工具区与内容区互不干扰，操作路径短，适合快速定位目标。</li>
+      <li><span class="li-marker">04</span> 低干扰度：无自动播放媒体，无强制订阅弹窗，尊重用户注意力。</li>
+    </ul>
+  </div>
+
+  <h2>适合持续关注的场景</h2>
+  <p>日常信息查阅、特定资源追踪、或者仅仅是保持一个习惯性入口——将 <a href="https://coms-jiyou.com">九游官网</a> 加入书签后，你不需要记住复杂的路径，每一次回访都像是走进一间布局熟悉的房间。对于需要定期关注同一信息源的用户，这种一致性比花哨的动效更值得信赖。</p>
+
+  <h2>一点提示</h2>
+  <p>如果你长期未访问某个站点，再次打开时可能会遇到界面调整或安全证书检查。而九游官网在这一点上维持了相当克制的迭代策略，常用板块的位置与视觉逻辑几乎不变。即便间隔数月，你依然能凭直觉找到之前常用的功能区域。</p>
+
+  <h2>常见疑问摘要</h2>
+  <div class="faq-item">
+    <div class="faq-q">—— 是否需要注册才能浏览全部内容？</div>
+    <div class="faq-a">大部分信息板块对访客开放，无需登录即可阅读；部分个性化功能建议注册后使用，但浏览体验不受强制限制。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">—— 移动端与桌面端体验一致吗？</div>
+    <div class="faq-a">核心布局与功能保持统一，移动端针对触控进行了精简，同时保留了桌面端的结构化优势。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">—— 怎样最快回到首页？</div>
+    <div class="faq-a">页面左上角始终设有站点标识，点击即可返回起始位置。你也可以直接将 <a href="https://coms-jiuyou.com">九游官网</a> 设为浏览器主页。</div>
+  </div>
+
+  <div class="end-note">
+    <p class="muted">一个值得被记住的地址，不必频繁打扰，但始终在场。</p>
+  </div>
+
+  <!-- 微装饰，仅用于保持干净结构 -->
+  <hr>
+  <p style="font-size: 0.8rem; color: #aaa; text-align: right; margin-top: 0.6rem;">·</p>
+
+</div>
+</body>
+</html>
