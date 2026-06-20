@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>xingkong.com – 稳定信息入口</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f6fafb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #1f2e3a;
+      padding: 1.2rem 1rem 3rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* 主视觉 - 蓝绿渐变卡片网格 */
+    .hero {
+      background: linear-gradient(145deg, #d5efe8 0%, #b5ded2 100%);
+      border-radius: 2rem 2rem 2rem 2rem;
+      padding: 2.2rem 1.8rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 8px 18px rgba(0, 80, 70, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -20% -10%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle at 20% 30%, rgba(60, 160, 150, 0.10), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b3d3a;
+      line-height: 1.3;
+      margin-bottom: 0.6rem;
+      position: relative;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #1f514b;
+      max-width: 680px;
+      position: relative;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(2px);
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #11665a;
+      margin-top: 0.8rem;
+      border: 1px solid rgba(70, 150, 130, 0.2);
+    }
+
+    /* 信息卡片网格 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0 2.4rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.4rem;
+      padding: 1.5rem 1.2rem 1.2rem;
+      box-shadow: 0 3px 10px rgba(0, 60, 50, 0.04);
+      border: 1px solid rgba(190, 220, 210, 0.5);
+      transition: transform 0.15s ease, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0, 90, 80, 0.08);
+      border-color: #a3cdc2;
+    }
+
+    .card-icon {
+      display: inline-flex;
+      width: 2.4rem;
+      height: 2.4rem;
+      background: #dff2ed;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: #11796a;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #144d46;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2d4f4a;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 0.5rem;
+      padding: 0;
+    }
+
+    .card li {
+      font-size: 0.9rem;
+      padding: 0.25rem 0;
+      color: #2d5b54;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card li::before {
+      content: "•";
+      color: #3aa18c;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #ffffff;
+      border-radius: 1.6rem;
+      padding: 1.6rem 1.6rem 1.8rem;
+      margin: 1.8rem 0 2rem;
+      border-left: 5px solid #3aab96;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .link-paragraph p {
+      font-size: 1rem;
+      color: #20433e;
+      margin-bottom: 0.5rem;
+      line-height: 1.7;
+    }
+
+    .link-paragraph a {
+      color: #147a68;
+      text-decoration: none;
+      font-weight: 550;
+      border-bottom: 1px dashed #3aab96;
+      transition: border-bottom 0.2s, color 0.15s;
+    }
+
+    .link-paragraph a:hover {
+      border-bottom: 2px solid #0a5e50;
+      color: #095c4e;
+    }
+
+    /* FAQ摘要卡片 */
+    .faq-mini {
+      background: #e9f4f1;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.4rem;
+      margin: 2rem 0 1.2rem;
+      border: 1px solid #c8ddd6;
+    }
+
+    .faq-mini summary {
+      font-weight: 550;
+      font-size: 1rem;
+      color: #105e52;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .faq-mini summary::marker {
+      content: "";
+      display: none;
+    }
+
+    .faq-mini summary::before {
+      content: "▸";
+      margin-right: 0.3rem;
+      color: #2a8f7b;
+      transition: transform 0.2s;
+      font-size: 1.1rem;
+    }
+
+    .faq-mini[open] summary::before {
+      content: "▾";
+    }
+
+    .faq-mini p {
+      margin-top: 0.5rem;
+      font-size: 0.92rem;
+      color: #1b554b;
+      padding-left: 0.6rem;
+    }
+
+    /* 提示区块 */
+    .note-box {
+      background: rgba(170, 215, 200, 0.20);
+      border: 1px solid #a6cec2;
+      border-radius: 1.2rem;
+      padding: 1rem 1.4rem;
+      margin: 1.8rem 0 0.8rem;
+      font-size: 0.95rem;
+      color: #1c5b50;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .note-box::before {
+      content: "ⓘ";
+      font-size: 1.2rem;
+      color: #2b8d79;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .footer-line {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #6b8f88;
+      text-align: center;
+      border-top: 1px solid #d1e4de;
+      padding-top: 1.5rem;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.7rem; }
+      .hero { padding: 1.6rem 1.2rem; }
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 主视觉 + 稳定入口介绍 -->
+  <div class="hero">
+    <h1>xingkong.com · 清晰接入</h1>
+    <p>一个指向 <strong>register‑xingkong</strong> 的稳定信息页，用于说明用途、适用场景与访问基础。页面内容保持知识性，不做过度承诺。</p>
+    <span class="badge">信息卡片式 · 蓝绿点缀</span>
+  </div>
+
+  <!-- 用途卡片：三个模块 -->
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">⛵</div>
+      <h3>定位导航</h3>
+      <p>提供从说明页到目标服务之间的固定路径，减少中间环节的认知负担。适合首次接触该地址的用户快速理解上下文。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>场景说明</h3>
+      <ul>
+        <li>账号相关的基础信息查阅</li>
+        <li>服务状态与指引整合</li>
+        <li>常见问题前置摘要</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon">👥</div>
+      <h3>适合人群</h3>
+      <ul>
+        <li>需要确认站点入口的浏览者</li>
+        <li>希望预先了解功能边界的用户</li>
+        <li>对注册流程有基础了解需求的人</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 自然链接段落：嵌入 xingkong.com 文本，不出现点击、进入等引导词 -->
+  <div class="link-paragraph">
+    <p>该介绍页面与主服务 <a href="https://register-xingkong.com">xingkong.com</a> 保持独立，聚焦于前置说明。如果你已经了解背景，可直接通过上方链接抵达目标页面；若仍需要了解功能构成，以下摘要可供参考。稳定入口的意义在于降低不确定性，<a href="https://register-xingkong.com">xingkong.com</a> 本身即为指向注册与服务说明的固定地址。</p>
+    <p style="margin-top: 0.6rem;">从信息结构上看，将说明页与操作页分离有助于用户按需获取内容，避免信息过载。因此本页仅作介绍用途，实际功能流转请以 <a href="https://register-xingkong.com">xingkong.com</a> 页面为准。</p>
+  </div>
+
+  <!-- 简短 FAQ 摘要 -->
+  <details class="faq-mini">
+    <summary>常见疑问摘要（2 条）</summary>
+    <p><strong>Q：</strong> 这个页面和 xingkong.com 是什么关系？<br>
+    <strong>A：</strong> 本页是前置信息页，不替代主站功能；主站地址为 <a href="https://register-xingkong.com" style="color:#147a68; text-decoration:underline; border:none;">xingkong.com</a>，提供注册及服务说明。</p>
+    <p><strong>Q：</strong> 页面内容会频繁更新吗？<br>
+    <strong>A：</strong> 根据实际反馈调整信息卡片与说明，保持稳定和准确，不发布未经核实的内容。</p>
+  </details>
+
+  <!-- 提示框：说明页面角色 -->
+  <div class="note-box">
+    本页内容仅作知识展示和入口说明，不包含注册引导、下载链接或诱导性语句。所有信息以 <a href="https://register-xingkong.com" style="color:#11665a; text-decoration:underline; border-bottom:1px dotted;">xingkong.com</a> 实际发布为准。
+  </div>
+
+  <!-- 底栏（无入口词汇） -->
+  <div class="footer-line">
+    index · 信息卡片式 · 稳定入口说明
+  </div>
+
+</div>
+</body>
+</html>
